@@ -59,7 +59,8 @@ function setStart(maze, canvas, ctx, event){
 
   var mouseX = event.pageX - x;
   var mouseY = event.pageY - y;
-
+  console.log([mouseX, mouseY])
+  console.log([maze.size, maze.width, maze.height]);
   if(mouseX < 0 || mouseY < 0 ||
     mouseX > maze.size * maze.width || mouseY > maze.size * maze.height){
     alert("Please click inside the maze.");
@@ -86,7 +87,8 @@ function setFinish(maze, canvas, ctx, startCoor, event){
 
   var mouseX = event.pageX - x;
   var mouseY = event.pageY - y;
-
+  console.log([mouseX, mouseY]);
+  console.log([maze.size, maze.width, maze.height]);
   if(mouseX < 0 || mouseY < 0 ||
     mouseX > maze.size * maze.width || mouseY > maze.size * maze.height){
     alert("Please click inside the maze.");
@@ -104,9 +106,11 @@ function setFinish(maze, canvas, ctx, startCoor, event){
       maze.display(ctx, canvas);
       var end = new Node(startCoor);
       var start = mazeToGraph(maze, endCoor);
+      console.log(start);
       // debugger
       //
       var path = AStar(start, end);
+      console.log(path);
       // debugger;
       colorPath(maze, path, end, ctx, canvas);
 
@@ -125,8 +129,8 @@ function setFinish(maze, canvas, ctx, startCoor, event){
   }
 }
 
-function mazeSetup(height, width){
-    var maze = new Maze(height, width);
+function mazeSetup(width, height){
+    var maze = new Maze(width, height);
     maze.arr[1][1] = "E";
 
     var walls = [CreateCoor(1,2), CreateCoor(2,1)];

@@ -15,6 +15,7 @@ Node.prototype.setNeighbors = function (neighbors) {
 };
 
 Node.prototype.generateNeighbors = function (nodes, maze) {
+  //DOUBLE CHECK THIS LINE maze.height and maze.width, throughout
   var possibleNeighbors = this.coor.getValidNeighbors(maze.height, maze.width);
   var neighbors = possibleNeighbors.filter(function(coor){
     return maze.getVal(coor) !== "W";

@@ -1,4 +1,4 @@
-function Maze(height, width){
+function Maze(width, height){
   this.height = height;
   this.width = width;
   this.arr = this.initializeArr();
@@ -6,9 +6,9 @@ function Maze(height, width){
 
 Maze.prototype.initializeArr = function () {
   var maze = [];
-  for (var i = 0; i < this.height; i++) {
+  for (var i = 0; i < this.width; i++) {
     maze[i] = [];
-    for (var j = 0; j < this.width; j++) {
+    for (var j = 0; j < this.height; j++) {
       maze[i][j] = "W";
     }
   }

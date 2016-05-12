@@ -33,7 +33,7 @@ Coor.prototype.toString = function () {
   return JSON.stringify([this.row, this.col]);
 };
 
-Coor.prototype.getValidNeighbors = function (height, width) {
+Coor.prototype.getValidNeighbors = function (width, height) {
     var deltas = [CreateCoor(-1,0), CreateCoor(1,0), CreateCoor(0,-1), CreateCoor(0,1)];
     var self = this;
     var possibleNeighbors =  deltas.map(function(delta){

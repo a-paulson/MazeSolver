@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="maze.css">
+    <script src="coor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="maze.js" type="text/javascript" charset="utf-8"></script>
+    <script src="heapNode.js" type="text/javascript" charset="utf-8"></script>
+    <script src="fibMinHeap.js" type="text/javascript" charset="utf-8"></script>
+    <script src="priorityQueue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="graphNode.js" type="text/javascript" charset="utf-8"></script>
+    <script src="aStar.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mazeGen.js" type="text/javascript" charset="utf-8"></script>
+    <title>JS Maze Demo</title>
+  </head>
+  <body id="body">
+    <div class="wrapper">
+      <h1>Maze Solver</h1>
+      <canvas id="maze" width="550" height="550"></canvas>
+      <br />
+      <br />
+      <form>
+        <label>Maze Width
+          <input type="text" id="width"/>
+        </label>
+        <label>Maze Height
+          <input type="text" id="height"/>
+        </label>
+        <input type="button" name="make-maze" id="make-maze" value="Make Maze">
+      </form>
+      <h2>Instructions</h2>
+      <ul>
+        <li>Choose a height and width for your maze. Please keep both values betwen 10 and 40.</li>
+        <li>Click "Make Maze" and watch your maze get generated using a randomized Prim's algorithm.</li>
+        <li>Click on the maze to select a start point and an end point. The shortest path between them, found using the A* algorithm, and highlighted in red.</li>
+      </ul>
+    </div>
+  </body>
+  <script src="userInteraction.js" type="text/javascript">
+
+  </script>
+</html>

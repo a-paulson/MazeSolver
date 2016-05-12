@@ -1,0 +1,19 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper{
+  display: block;
+  width: 550px;
+}
+
+h1, h2, h3, h4{
+  text-align: center;
+}
+
+p{
+  word-wrap: break-word;
+}
+#maze{
+}

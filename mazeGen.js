@@ -19,6 +19,7 @@ function PrimMazeGen(maze, walls, seenWalls, ctx, canvas){
       for (var i = 0; i < border.length; i++) {
         if(seenWalls.indexOf(border[i]) === -1){
           walls.push(border[i]);
+          seenWalls.push(border[i]);
         }
       }
     }

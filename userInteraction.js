@@ -14,7 +14,7 @@ function handleEvent(event){
   var heightBox = document.getElementById('height');
   var width = parseInt(widthBox.value);
   var height = parseInt(heightBox.value);
-  if(width < 10 || height < 10 || width >40 || height >40){
+  if(width < 10 || height < 10 || width >40 || height >40 || !height || !width){
     alert("Please keep height and width between 10 and 40.");
     widthBox.value = "";
     heightBox.value = "";

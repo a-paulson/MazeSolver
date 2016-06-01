@@ -2,7 +2,7 @@
 
 [Maze Solver][live]
 
-[live]: https://a-paulson.github.io/
+[live]: https://a-paulson.github.io/MazeSolver
 
 Maze Solver is a JavaScript app that generates and solves mazes. Mazes are generated using a random Prim's algorithm. Then, the shortest path between two, user specified, points is found using the A* algorithm. This priority queue in A* is implemented using a hand made Fibonacci heap.
 

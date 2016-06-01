@@ -1,6 +1,5 @@
 function HeapNode(key, value, childList, parent, left, right, mark, degree){
   this.key = key;
-  //console.log(this.key);
   this.value = value;
 
   this.parent  = parent;

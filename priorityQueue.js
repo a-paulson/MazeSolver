@@ -3,9 +3,7 @@ function PriorityQueue(){
 }
 
 PriorityQueue.prototype.insert = function (el, priority) {
-  //console.log("PQ insert start");
   this.heap.insert(new HeapNode(priority, el));
-  //console.log("PQ insert end");
 };
 
 PriorityQueue.prototype.pop = function () {

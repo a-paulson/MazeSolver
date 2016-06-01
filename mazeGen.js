@@ -28,20 +28,7 @@ function PrimMazeGen(maze, walls, seenWalls, ctx, canvas){
     // PrimMazeGen(maze, walls, ctx, canvas);
     setTimeout(PrimMazeGen, 1, maze, walls, seenWalls, ctx, canvas);
   } else{
-    //console.log("built maze")
-    // colorTest(maze, mazeToGraph(maze, new Coor(1,1)));
-    // ctx.clearRect(0,0, canvas.width, canvas.height)
-    // maze.display(ctx, canvas);
     $(canvas).bind("click",setStart.bind(this, maze, canvas, ctx))
-    // var start = mazeToGraph(maze,new Coor(1,1));
-    // //console.log("built graph")
-    // var goal = new Node(new Coor(maze.width - 2, maze.height - 2))
-    // var path = AStar(start, goal);
-    // //console.log(path)
-    // colorPath(maze, path, goal);
-    // //console.log(maze);
-    // ctx.clearRect(0,0, canvas.width, canvas.height)
-    // maze.display(ctx, canvas);
   }
 }
 
@@ -99,7 +86,6 @@ function setFinish(maze, canvas, ctx, startCoor, event){
       alert("Please choose an empty square.");
     } else{
       console.log("past check");
-      // debugger;
       $(canvas).off("click");
       maze.setVal(endCoor, "F");
       ctx.clearRect(0,0, canvas.width, canvas.height)
@@ -107,24 +93,9 @@ function setFinish(maze, canvas, ctx, startCoor, event){
       var end = new Node(startCoor);
       var start = mazeToGraph(maze, endCoor);
       console.log(start);
-      // debugger
-      //
       var path = AStar(start, end);
       console.log(path);
-      // debugger;
       colorPath(maze, path, end, ctx, canvas);
-
-
-
-      // var start = mazeToGraph(maze, startCoor);
-      // //console.log("built graph")
-      // var goal = new Node(endCoor)
-      // var path = AStar(start, goal);
-      // //console.log(path)
-      // colorPath(maze, path, goal);
-      // //console.log(maze);
-      // ctx.clearRect(0,0, canvas.width, canvas.height)
-      // maze.display(ctx, canvas);
     }
   }
 }
@@ -143,17 +114,6 @@ function randomWall(wallList){
     var wall = wallList.splice(Math.floor(Math.random()*wallList.length), 1);
     return wall[0];
 }
-
-// function getValidWalls(currentMaze, coor){
-//   var deltas = [CreateCoor(-1,0), CreateCoor(1,0), CreateCoor(0,-1), CreateCoor(0,1)];
-//   var outputWalls =  deltas.map(function(delta){
-//     return delta.add(coor);
-//   });
-//
-//   return outputWalls.filter(function(wall){
-//     return (wall.row > 0 && wall.col > 0 && wall.row < currentMaze.height - 1 && wall.col < currentMaze.width - 1);
-//   });
-// }
 
 function testBorder(maze, walls){
   var border = undefined;

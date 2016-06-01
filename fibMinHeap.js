@@ -1,6 +1,5 @@
 function FibMinHeap(){
 this.min = undefined; //pointer to min val
-// this.roots = undefined; //rootList
 this.size = 0; // number of nodes in heap
 }
 
@@ -9,7 +8,6 @@ FibMinHeap.prototype.findMin = function () {
 };
 
 FibMinHeap.prototype.insert = function (node) {
-  //console.log("FMH insert start");
   node.degree = 0;
   node.parent = undefined;
   node.childList = undefined;
@@ -24,28 +22,16 @@ FibMinHeap.prototype.insert = function (node) {
     }
   }
   this.size += 1;
-  //console.log("FMH insert end");
 };
 
 FibMinHeap.prototype.extractMin = function () {
-  //console.log("FMH extract start");
   var node = this.min;
   if(node !== undefined){
-    //console.log("node defined");
     var child = node.childList;
     if(child !== undefined){
-      // //console.log("child defined");
       var children = node.childrenEnum();
-      // //console.log(child);
-      // //console.log(child === nextNode);
       for (var i = 0; i < children.length; i++) {
         var child = children[i];
-        // //console.log("child loop");
-        // //console.log(child === nextNode);
-
-        // var current = nextNode;
-        // nextNode = current.right;
-        // //console.log(current === nextNode);
         this.addToRootList(child);
         child.parent = undefined;
       }
@@ -58,33 +44,19 @@ FibMinHeap.prototype.extractMin = function () {
       this.roots = undefined;
     } else{
       this.min = node.right;
-      //console.log("consolidate");
       this.consolidate();
     }
 
     this.size -=1;
   }
-  //console.log("FMH extract end");
   return node;
 };
 
 FibMinHeap.prototype.consolidate = function () {
-  //console.log("fmh consolidate start");
   var treeArr = [];
-  // var start = this.roots;
-  // var current = this.roots;
-  // var go = true;          //Make sure this loop hits every root list node once
-  // while(go){
   var rootNodes = this.roots.siblingEnum();
   for (var i = 0; i < rootNodes.length; i++) {
     var currentRoot = rootNodes[i];
-    // //console.log("root list loop");
-    // //console.log(go);
-    // if(current.right === start){
-    //   go = false;
-    // }
-    // var node = current;
-    // current = current.right;
     var degree = currentRoot.degree;
     while(treeArr[degree] !== undefined){
       var sameDegree = treeArr[degree];
@@ -100,7 +72,6 @@ FibMinHeap.prototype.consolidate = function () {
     }
     treeArr[degree] = currentRoot;
   }
-  //console.log("finished compressing root list");
   this.min = undefined;
   for (var i = 0; i < treeArr.length; i++) {
     if(treeArr[i] !== undefined){
@@ -118,7 +89,6 @@ FibMinHeap.prototype.consolidate = function () {
       }
     }
   }
-  //console.log("fmh consolidate end");
 };
 
 FibMinHeap.prototype.heapLink = function (maxNode, minNode) {
